@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>Kangla Labs</title>
+<meta name="description" content="Kangla Labs builds Manipuri-first Android apps. Maker of Kumsing, the Manipuri lunar calendar.">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --card: #ffffff;
+    --ink: #1c1c1e;
+    --muted: #5c5c62;
+    --line: #e6e2d8;
+    --tangerine: #e08a3c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1e;
+      --card: #242426;
+      --ink: #f2f2f4;
+      --muted: #a0a0a6;
+      --line: #34343a;
+      --tangerine: #e8a35c;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 24px 16px 64px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 26px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+  }
+  h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 4px 0 6px;
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-size: 18px;
+    margin: 30px 0 8px;
+    padding-top: 6px;
+    border-top: 1px solid var(--line);
+  }
+  .lead { color: var(--muted); margin: 0 0 4px; }
+  p { margin: 10px 0; }
+  a { color: var(--tangerine); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .app {
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin: 14px 0 0;
+    color: inherit;
+  }
+  .app:hover { border-color: var(--tangerine); text-decoration: none; }
+  .app .name { font-weight: 600; font-size: 17px; }
+  .app .desc { color: var(--muted); font-size: 15px; margin-top: 4px; }
+  .app .go { color: var(--tangerine); font-size: 14px; margin-top: 8px; }
+  code {
+    background: rgba(128,128,128,0.14);
+    padding: 1px 6px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 28px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Kangla Labs</h1>
+    <p class="lead">Manipuri-first apps, built for everyday use.</p>
+    <p>We make small, careful Android apps for Manipur — starting with the
+      things people reach for daily and rarely find in their own language.
+      Everything we ship works offline first.</p>
+
+    <h2>Apps</h2>
+    <a class="app" href="https://play.google.com/store/apps/details?id=com.kanglalabs.kumsing">
+      <div class="name">Kumsing — Manipuri Calendar</div>
+      <div class="desc">The Manipuri lunar calendar: months, tithi, festivals
+        and holidays, in Meetei Mayek and English. Works fully offline.</div>
+      <div class="go">Get it on Google Play →</div>
+    </a>
+
+    <h2>Contact</h2>
+    <p>Email <a href="mailto:kanglalabs@gmail.com">kanglalabs@gmail.com</a>
+      for support, corrections to calendar data, or partnership enquiries.
+      Corrections from readers of the printed almanac are especially welcome.</p>
+
+    <h2>Legal</h2>
+    <p><a href="https://frantica.github.io/Legal/kumsing-privacy/">Kumsing privacy policy</a></p>
+
+    <footer>© 2026 Kangla Labs · Imphal, Manipur, India</footer>
+  </div>
+</div>
+</body>
+</html>
