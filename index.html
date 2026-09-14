@@ -3,115 +3,250 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="index, follow">
-<title>Kangla Labs</title>
-<meta name="description" content="Kangla Labs builds Manipuri-first Android apps. Maker of Kumsing, the Manipuri lunar calendar.">
+<title>Kangla Labs — Manipuri-first apps</title>
+<meta name="description" content="Kangla Labs builds Manipuri-first apps for Android and iPhone. Maker of Kumsing, the Manipuri calendar.">
+<meta name="theme-color" content="#0A0F1A">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/kangla-192.png">
+<link rel="canonical" href="https://frantica.github.io/">
+
+<!-- Open Graph: this URL is pasted into a bio, a WhatsApp group and a Facebook
+     post, and an unfurl with no image reads as a dead link. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kangla Labs — Manipuri-first apps">
+<meta property="og:description" content="Kumsing, the Manipuri calendar. Free on the App Store and Google Play.">
+<meta property="og:url" content="https://frantica.github.io/">
+<meta property="og:image" content="https://frantica.github.io/img/kangla-192.png">
+<meta name="twitter:card" content="summary">
+
 <style>
-  :root {
-    --bg: #f7f5f0;
-    --card: #ffffff;
-    --ink: #1c1c1e;
-    --muted: #5c5c62;
-    --line: #e6e2d8;
-    --tangerine: #e08a3c;
+  /* Kangla Labs brand tokens — brand/tokens/colors.css. Dark-first by system:
+     the mark is a gradient on ink and the light surface is pure white, never
+     cream. Do not introduce a colour that is not in this block. */
+  :root{
+    --cyan:#00B4DB; --sky:#48CAE4; --blue:#0077FF; --deep:#023E8A;
+    --ink:#0A0F1A; --ink-2:#0F1626; --surface:#131B2B;
+    --text:#FFFFFF; --text-2:#B9C4D4; --text-3:#8794A8; --hair:#1E2A3E;
+    --radius:18px;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #1c1c1e;
-      --card: #242426;
-      --ink: #f2f2f4;
-      --muted: #a0a0a6;
-      --line: #34343a;
-      --tangerine: #e8a35c;
-    }
+  @font-face{font-family:Satoshi;src:url(fonts/Satoshi-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:Satoshi;src:url(fonts/Satoshi-Medium.woff2) format("woff2");font-weight:500;font-display:swap}
+  @font-face{font-family:Satoshi;src:url(fonts/Satoshi-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; min-height:100svh;
+    background:var(--ink);
+    /* One quiet wash of the brand gradient behind the head, so the page is not
+       a flat rectangle. The MARK never gets an effect; the page may. */
+    background-image:radial-gradient(120% 60% at 50% -10%, rgba(0,180,219,.16), transparent 60%);
+    background-repeat:no-repeat;
+    color:var(--text);
+    font:400 16px/1.6 Satoshi,Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    display:flex; flex-direction:column; align-items:center;
+    padding:56px 20px 40px;
   }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    padding: 24px 16px 64px;
+  .wrap{width:100%; max-width:460px; min-width:0}
+
+  /* ---- identity ---------------------------------------------------------- */
+  .id{text-align:center; margin-bottom:40px}
+  .mark{width:66px; height:66px; display:block; margin:0 auto 18px}
+  h1{font-size:30px; line-height:1.1; font-weight:700; letter-spacing:-.01em; margin:0}
+  .tag{
+    margin:10px 0 0; font-size:11px; font-weight:500;
+    letter-spacing:.34em; text-transform:uppercase; color:var(--text-3);
   }
-  .wrap { max-width: 720px; margin: 0 auto; }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 28px 26px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+  .tag i{font-style:normal; color:var(--cyan)}   /* the dots are the mark */
+  .lede{margin:18px auto 0; max-width:34ch; color:var(--text-2); font-size:15px}
+
+  /* ---- the apps ---------------------------------------------------------- */
+  h2{
+    font-size:11px; font-weight:500; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--text-3); margin:0 0 14px; padding-left:2px;
   }
-  h1 {
-    font-size: 28px;
-    line-height: 1.2;
-    margin: 4px 0 6px;
-    letter-spacing: -0.01em;
+  .app{
+    background:var(--ink-2); border:1px solid var(--hair); border-radius:var(--radius);
+    padding:22px 20px; margin-bottom:14px;
   }
-  h2 {
-    font-size: 18px;
-    margin: 30px 0 8px;
-    padding-top: 6px;
-    border-top: 1px solid var(--line);
+  .app-top{display:flex; align-items:center; gap:15px}
+  .app-top img{width:58px; height:58px; border-radius:14px; flex:none; background:var(--surface)}
+  .app-top h3{margin:0; font-size:19px; font-weight:700; letter-spacing:-.01em}
+  .app-top p{margin:2px 0 0; font-size:13.5px; color:var(--text-3)}
+  .app > p{margin:16px 0 0; font-size:14.5px; color:var(--text-2)}
+
+  .stores{display:grid; grid-template-columns:repeat(auto-fit,minmax(146px,1fr)); gap:10px; margin-top:18px}
+  /* Badge-shaped, on a dark ground: it is how both stores' own badges are
+     drawn, and it is the only ground on which the Apple mark (white) and the
+     four-colour Play mark are BOTH correct. Neither mark is ever recoloured. */
+  .btn{
+    position:relative;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    padding:13px 10px; border-radius:12px; text-decoration:none;
+    font-size:14.5px; font-weight:500; letter-spacing:-.005em;
+    color:var(--text); background:var(--surface); border:1px solid var(--hair);
+    min-width:0; white-space:nowrap;
+    transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease;
   }
-  .lead { color: var(--muted); margin: 0 0 4px; }
-  p { margin: 10px 0; }
-  a { color: var(--tangerine); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .app {
-    display: block;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 16px 18px;
-    margin: 14px 0 0;
-    color: inherit;
+  .btn svg{width:20px; height:20px; flex:none}
+  .btn:hover{transform:translateY(-1px); border-color:var(--sky)}
+  .btn:active{transform:translateY(0)}
+  .btn:focus-visible{outline:2px solid var(--sky); outline-offset:3px}
+  /* The store the visitor can install from is listed first and outlined — not
+     filled, because a brand mark sitting on a brand gradient is two logos
+     fighting. Without JS both stay equal, which is the correct fallback. */
+  .btn.primary{border-color:var(--cyan); box-shadow:0 0 0 3px rgba(0,180,219,.13)}
+  .btn.primary::after{
+    content:"Your phone"; position:absolute; top:-8px; left:50%;
+    transform:translateX(-50%); padding:1px 8px; border-radius:99px;
+    font-size:9.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--ink); background:var(--cyan); white-space:nowrap;
   }
-  .app:hover { border-color: var(--tangerine); text-decoration: none; }
-  .app .name { font-weight: 600; font-size: 17px; }
-  .app .desc { color: var(--muted); font-size: 15px; margin-top: 4px; }
-  .app .go { color: var(--tangerine); font-size: 14px; margin-top: 8px; }
-  code {
-    background: rgba(128,128,128,0.14);
-    padding: 1px 6px;
-    border-radius: 6px;
-    font-size: 0.9em;
-    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  .soon{
+    border-style:dashed; background:transparent;
+    display:flex; align-items:center; gap:13px; color:var(--text-3); font-size:14px;
   }
-  footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 13px;
-    margin-top: 28px;
+  .soon .dot{width:7px; height:7px; border-radius:50%; background:var(--cyan); flex:none}
+
+  /* ---- links ------------------------------------------------------------- */
+  .links{display:grid; gap:10px; margin-top:26px}
+  .link{
+    display:flex; align-items:center; gap:12px;
+    padding:14px 18px; border-radius:14px; text-decoration:none;
+    background:var(--ink-2); border:1px solid var(--hair);
+    color:var(--text); font-size:15px; font-weight:500;
+    transition:border-color .12s ease, transform .12s ease;
   }
+  .link:hover{border-color:var(--sky); transform:translateY(-1px)}
+  .link svg{width:18px; height:18px; flex:none; fill:currentColor; color:var(--sky)}
+  .link .go{margin-left:auto; color:var(--text-3); font-size:17px}
+
+  footer{margin-top:38px; text-align:center; color:var(--text-3); font-size:12.5px; line-height:2}
+  footer a{color:var(--text-3); text-decoration:none; border-bottom:1px solid var(--hair)}
+  footer a:hover{color:var(--sky)}
+  footer .sep{opacity:.4; padding:0 8px}
+
+  @media (prefers-reduced-motion:reduce){ *{transition:none !important} }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="card">
-    <h1>Kangla Labs</h1>
-    <p class="lead">Manipuri-first apps, built for everyday use.</p>
-    <p>We make small, careful Android apps for Manipur — starting with the
-      things people reach for daily and rarely find in their own language.
-      Everything we ship works offline first.</p>
+<main class="wrap">
 
-    <h2>Apps</h2>
-    <a class="app" href="https://play.google.com/store/apps/details?id=com.kanglalabs.kumsing">
-      <div class="name">Kumsing — Manipuri Calendar</div>
-      <div class="desc">The Manipuri lunar calendar: months, tithi, festivals
-        and holidays, in Meetei Mayek and English. Works fully offline.</div>
-      <div class="go">Get it on Google Play →</div>
-    </a>
-
-    <h2>Contact</h2>
-    <p>Email <a href="mailto:kanglalabs@gmail.com">kanglalabs@gmail.com</a>
-      for support, corrections to calendar data, or partnership enquiries.
-      Corrections from readers of the printed almanac are especially welcome.</p>
-
-    <h2>Legal</h2>
-    <p><a href="https://frantica.github.io/Legal/kumsing-privacy/">Kumsing privacy policy</a></p>
-
-    <footer>© 2026 Kangla Labs · Imphal, Manipur, India</footer>
+  <div class="id">
+    <!-- The K, exactly as brand/tools/geometry.py draws it. One vertical
+         gradient across the whole mark, never per stroke. -->
+    <svg class="mark" viewBox="0 0 1000 1000" role="img" aria-label="Kangla Labs">
+      <defs><linearGradient id="k" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#00B4DB"/><stop offset="1" stop-color="#0077FF"/>
+      </linearGradient></defs>
+      <g fill="url(#k)">
+        <path d="M0 0 L288 0 L288 259 L0 547 Z"/>
+        <path d="M646 0 L1000 0 L0 1000 L0 646 Z"/>
+        <path d="M537 563 L974 1000 L620 1000 L360 740 Z"/>
+      </g>
+    </svg>
+    <h1>Kanglalabs</h1>
+    <p class="tag">Software<i>.</i> Mobile<i>.</i> Future<i>.</i></p>
+    <p class="lede">Manipuri-first apps for Android and iPhone, built in Imphal.</p>
   </div>
-</div>
+
+  <h2>Apps</h2>
+
+  <section class="app">
+    <div class="app-top">
+      <img src="img/kumsing-256.png" alt="The Kumsing app icon" width="58" height="58">
+      <div>
+        <h3>Kumsing</h3>
+        <p>The Manipuri Calendar</p>
+      </div>
+    </div>
+    <p>The lunar calendar, the tithi, every festival from 2024 to 2030 — offline,
+       and in Meetei Mayek, Bengali or Latin. Free.</p>
+    <div class="stores">
+      <a class="btn" id="ios" href="https://apps.apple.com/app/id6804580494">
+        <!-- The Apple mark is monochrome by Apple's own identity: white on a
+             dark ground, never tinted. -->
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="#FFFFFF"><path d="M17.05 12.54c-.03-2.9 2.37-4.29 2.48-4.36-1.35-1.97-3.45-2.24-4.2-2.27-1.79-.18-3.49 1.05-4.39 1.05-.91 0-2.3-1.03-3.79-1-1.95.03-3.74 1.13-4.75 2.88-2.02 3.51-.51 8.71 1.46 11.55.96 1.4 2.11 2.96 3.61 2.9 1.45-.06 2-.94 3.75-.94s2.25.94 3.78.91c1.56-.03 2.55-1.42 3.5-2.82 1.1-1.62 1.56-3.18 1.59-3.26-.04-.02-3.04-1.17-3.07-4.64zM14.2 3.9c.8-.97 1.34-2.32 1.19-3.66-1.15.05-2.55.77-3.37 1.73-.74.86-1.39 2.23-1.22 3.55 1.29.1 2.6-.66 3.4-1.62z"/></svg>
+        App Store
+      </a>
+      <a class="btn" id="android" href="https://play.google.com/store/apps/details?id=com.kanglalabs.kumsing">
+        <!-- Google Play, in its four official gradients: the blue fold, the
+             green upper wing, the yellow tip, the red lower wing. -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <defs>
+            <linearGradient id="pb" x1="14.9" y1="3.2" x2="1.7" y2="16.4" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#00A0FF"/><stop offset=".26" stop-color="#00A1FF"/>
+              <stop offset=".51" stop-color="#00BEFF"/><stop offset=".76" stop-color="#00D2FF"/>
+              <stop offset="1" stop-color="#00E3FF"/>
+            </linearGradient>
+            <linearGradient id="py" x1="22.2" y1="12" x2="2.8" y2="12" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FFE000"/><stop offset=".41" stop-color="#FFBD00"/>
+              <stop offset=".78" stop-color="#FFA500"/><stop offset="1" stop-color="#FF9C00"/>
+            </linearGradient>
+            <linearGradient id="pr" x1="17.1" y1="13.7" x2="-.6" y2="31.4" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FF3A44"/><stop offset="1" stop-color="#C31162"/>
+            </linearGradient>
+            <linearGradient id="pg" x1=".6" y1="-3.4" x2="8.5" y2="4.5" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#32A071"/><stop offset=".07" stop-color="#2DA771"/>
+              <stop offset=".48" stop-color="#15CF74"/><stop offset=".8" stop-color="#06E775"/>
+              <stop offset="1" stop-color="#00F076"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#pb)" d="M3.06 1.85a1.9 1.9 0 0 0-.44 1.33v17.64c0 .56.16 1.02.44 1.33l.06.06L13 12.12v-.24L3.12 1.79l-.06.06z"/>
+          <path fill="url(#py)" d="M16.29 15.41 13 12.12v-.24l3.3-3.29.07.04 3.9 2.22c1.11.63 1.11 1.67 0 2.3l-3.9 2.22-.08.04z"/>
+          <path fill="url(#pr)" d="M16.36 15.37 13 12 3.06 21.95c.37.39.97.43 1.65.05l11.65-6.63z"/>
+          <path fill="url(#pg)" d="M16.36 8.63 4.71 2a1.26 1.26 0 0 0-1.65.05L13 12l3.36-3.37z"/>
+        </svg>
+        Google Play
+      </a>
+    </div>
+  </section>
+
+  <div class="app soon">
+    <span class="dot" aria-hidden="true"></span>
+    <span>More Manipuri apps are in build.</span>
+  </div>
+
+  <!-- ⚠ THE TWO SOCIAL HANDLES BELOW ARE A GUESS. The repo has never recorded
+       them. Check both before this page is deployed — a dead link here is worse
+       than no link, because this page IS the bio link. -->
+  <h2 style="margin-top:30px">Elsewhere</h2>
+  <div class="links">
+    <a class="link" href="https://www.instagram.com/kanglalabs/">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.8s0 3.5-.1 4.8c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.5.1-4.8c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1 0-1.7.2-2.1.3-.5.2-.9.4-1.2.8-.4.3-.6.7-.8 1.2-.1.4-.3 1-.3 2.1C2.8 9.7 2.8 10.1 2.8 12s0 2.3.1 3.5c0 1.1.2 1.7.3 2.1.2.5.4.9.8 1.2.3.4.7.6 1.2.8.4.1 1 .3 2.1.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1 0 1.7-.2 2.1-.3.5-.2.9-.4 1.2-.8.4-.3.6-.7.8-1.2.1-.4.3-1 .3-2.1.1-1.2.1-1.6.1-3.5s0-2.3-.1-3.5c0-1.1-.2-1.7-.3-2.1-.2-.5-.4-.9-.8-1.2-.3-.4-.7-.6-1.2-.8-.4-.1-1-.3-2.1-.3-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.3-8.2a1.2 1.2 0 1 1-2.3 0 1.2 1.2 0 0 1 2.3 0z"/></svg>
+      Instagram <span class="go">&rsaquo;</span>
+    </a>
+    <a class="link" href="https://www.facebook.com/kanglalabs/">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
+      Facebook <span class="go">&rsaquo;</span>
+    </a>
+    <a class="link" href="mailto:kanglalabs@gmail.com">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.1L4.6 7H19.4L12 12.1zM4 8.6V17h16V8.6l-7.4 5.1a1 1 0 0 1-1.2 0L4 8.6z"/></svg>
+      Email us <span class="go">&rsaquo;</span>
+    </a>
+  </div>
+
+  <footer>
+    <a href="https://frantica.github.io/Legal/kumsing-privacy/">Privacy policy</a>
+    <span class="sep">·</span>
+    <a href="https://frantica.github.io/Legal/kumsing-privacy/#data-deletion">Delete your data</a>
+    <br>&copy; <span id="y">2026</span> Kangla Labs &middot; Imphal, Manipur
+  </footer>
+</main>
+
+<script>
+  // Promote the store the visitor can actually install from. Both links stay
+  // visible and clickable — a page that hides the other store is wrong for the
+  // person who is choosing a phone, or sending the link to someone else.
+  (function(){
+    var ua = navigator.userAgent || "";
+    var apple = /iPad|iPhone|iPod|Macintosh/.test(ua) && !window.MSStream;
+    var el = document.getElementById(apple ? "ios" : "android");
+    el.classList.add("primary");
+    el.parentNode.prepend(el);   // first, and outlined — never refilled
+    document.getElementById("y").textContent = new Date().getFullYear();
+  })();
+</script>
 </body>
 </html>
